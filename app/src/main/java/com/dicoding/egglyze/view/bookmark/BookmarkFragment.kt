@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.egglyze.databinding.FragmentBookmarkBinding
 
+
 class BookmarkFragment : Fragment() {
 
     private var _binding: FragmentBookmarkBinding? = null
