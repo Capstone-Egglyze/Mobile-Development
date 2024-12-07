@@ -1,22 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.bookmark.BookmarkFragment">
 
-    <TextView
-        android:id="@+id/text_dashboard"
+    <!-- Material Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_bookmark"
         android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/xml_result_bookmark"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- Divider Line Below Toolbar -->
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_bookmark" />
+
+    <!-- Text Showing Saved Result Message -->
+    <TextView
+        android:id="@+id/tv_soil_result"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/xml_your_soil_result_saved"
         android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_bookmark"
+        app:layout_constraintBottom_toTopOf="@id/rv_bookmark" />
+
+    <!-- RecyclerView for Bookmarks -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_bookmark"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tv_soil_result"
+        tools:listitem="@layout/item_bookmark" />
 </androidx.constraintlayout.widget.ConstraintLayout>
