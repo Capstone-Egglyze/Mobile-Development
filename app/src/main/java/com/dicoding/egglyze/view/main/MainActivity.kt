@@ -1,18 +1,17 @@
-package com.dicoding.egglyze
+package com.dicoding.egglyze.view.main
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.dicoding.egglyze.R
 import com.dicoding.egglyze.databinding.ActivityMainBinding
 import com.dicoding.egglyze.view.auth.LoginActivity
-import com.dicoding.egglyze.view.profile.ProfileFragment
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 

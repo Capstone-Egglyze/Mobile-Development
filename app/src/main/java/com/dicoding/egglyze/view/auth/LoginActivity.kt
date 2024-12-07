@@ -7,10 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.dicoding.egglyze.MainActivity
-import com.dicoding.egglyze.R
+import com.dicoding.egglyze.view.main.MainActivity
 import com.dicoding.egglyze.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth

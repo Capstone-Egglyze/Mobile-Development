@@ -1,30 +1,63 @@
 <resources>
-<string name="app_name">Egglyze</string>
-<string name="title_home">Home</string>
-<string name="title_dashboard">Dashboard</string>
-<string name="title_notifications">Notifications</string>
-<string name="full_name_hint">Nama Lengkap</string>
-<string name="email_hint">Email</string>
-<string name="password_hint">Password</string>
-<string name="confirm_password_hint">Konfirmasi Password</string>
-<string name="signup_button_text">Daftar</string>
-<string name="login_prompt">Sudah punya akun? </string>
-<string name="login_text">Login</string>
-<string name="forgot_password_text">Lupa Password?</string>
+    <string name="app_name">Egglyze</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="full_name_hint">Nama Lengkap</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Konfirmasi Password</string>
+    <string name="signup_button_text">Daftar</string>
+    <string name="login_prompt">Sudah punya akun? </string>
+    <string name="login_text">Login</string>
+    <string name="forgot_password_text">Lupa Password?</string>
 
-<!--Menu-->
-<string name="home">Home</string>
-<string name="history">History</string>
-<string name="profile">Profile</string>
+    <!--Menu-->
+    <string name="home">Home</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
 
-<!--Profile-->
-<string name="my_account">My Account</string>
-<string name="premium">Premium</string>
-<string name="privacy_policy">Privacy Policy</string>
-<string name="help_center">Help Center</string>
-<string name="rate_us">Rate Us</string>
+    <!--Profile-->
+    <string name="my_account">My Account</string>
+    <string name="premium">Premium</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="help_center">Help Center</string>
+    <string name="rate_us">Rate Us</string>
 
+    <!--XML Bookmark-->
+    <string name="xml_result_bookmark">Result Bookmark</string>
+    <string name="xml_your_soil_result_saved">Your Soil Result Saved :</string>
+    <string name="xml_read_more">read more</string>
+    <string name="xml_bookmark">Bookmark</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-<string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--XML Settings-->
+    <string name="xml_settings">Settings</string>
+    <string name="xml_profile_name">profile</string>
+    <string name="xml_grup_name">C241-PS395</string>
+    <string name="xml_settings_name">name</string>
+    <string name="xml_theme">Theme</string>
+    <string name="xml_app_theme">app theme</string>
+    <string name="xml_light_dark">light/dark</string>
+    <string name="xml_arrow">arrow right</string>
+    <string name="xml_language">Language</string>
+    <string name="xml_english_indonesia">english/indonesia</string>
+    <string name="xml_logout">Logout</string>
+    <string name="xml_cancel">   cancel   </string>
+    <string name="xml_are_you_sure_want_to_logout">Are you sure want to logout?</string>
+    <string name="xml_yes_logout">Yes, logout</string>
+    <string name="xml_info_desc">The soil sensor updated every 5 minute. please click the refresh button to update the soil data</string>
+
+    <!--XML Act Result-->
+    <string name="xml_result">Result</string>
+    <string name="fab_bookmark_result">bookmark result</string>
+    <string name="xml_predictedat">PredictedAt :</string>
+
+    <!--XML Prediction-->
+    <string name="xml_prediction">Prediction</string>
+    <string name="xml_prediction_desc">Identify the plants that\nmatch your soil conditions.\nClick to get the result</string>
+    <string name="xml_start_prediction">Start Prediction...</string>
+    <string name="xml_start">Start</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

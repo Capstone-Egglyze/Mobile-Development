@@ -39,7 +39,7 @@
 
         <!-- Main Activity (Dengan ActionBar) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".view.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <!-- No need for intent-filter here because it's started after Splash -->
