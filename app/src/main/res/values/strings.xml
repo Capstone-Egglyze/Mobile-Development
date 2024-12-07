@@ -1,0 +1,30 @@
+<resources>
+<string name="app_name">Egglyze</string>
+<string name="title_home">Home</string>
+<string name="title_dashboard">Dashboard</string>
+<string name="title_notifications">Notifications</string>
+<string name="full_name_hint">Nama Lengkap</string>
+<string name="email_hint">Email</string>
+<string name="password_hint">Password</string>
+<string name="confirm_password_hint">Konfirmasi Password</string>
+<string name="signup_button_text">Daftar</string>
+<string name="login_prompt">Sudah punya akun? </string>
+<string name="login_text">Login</string>
+<string name="forgot_password_text">Lupa Password?</string>
+
+<!--Menu-->
+<string name="home">Home</string>
+<string name="history">History</string>
+<string name="profile">Profile</string>
+
+<!--Profile-->
+<string name="my_account">My Account</string>
+<string name="premium">Premium</string>
+<string name="privacy_policy">Privacy Policy</string>
+<string name="help_center">Help Center</string>
+<string name="rate_us">Rate Us</string>
+
+
+<!-- TODO: Remove or change this placeholder text -->
+<string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

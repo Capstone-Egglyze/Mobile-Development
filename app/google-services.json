@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "393893679450",
+    "project_id": "mobile-41882",
+    "storage_bucket": "mobile-41882.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393893679450:android:080d835398d928ad686363",
+        "android_client_info": {
+          "package_name": "Ridho.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI8mPnt8KZAbmpC0ottIe0mIJddTaDt08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393893679450:android:caddae7d0b26ced8686363",
+        "android_client_info": {
+          "package_name": "com.dicoding.capstone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI8mPnt8KZAbmpC0ottIe0mIJddTaDt08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393893679450:android:63ffa0f1886dfb76686363",
+        "android_client_info": {
+          "package_name": "com.dicoding.egglyze"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI8mPnt8KZAbmpC0ottIe0mIJddTaDt08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
