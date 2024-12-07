@@ -4,35 +4,40 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.egglyze.databinding.FragmentBookmarkBinding
-
 
 class BookmarkFragment : Fragment() {
 
     private var _binding: FragmentBookmarkBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val bookmarkViewModel =
-            ViewModelProvider(this).get(BookmarkViewModel::class.java)
+    private lateinit var bookmarkAdapter: BookmarkAdapter
+    private lateinit var bookmarkViewModel: BookmarkViewModel
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inisialisasi ViewModel
+        bookmarkViewModel = ViewModelProvider(this).get(BookmarkViewModel::class.java)
+
+        // Menginflate binding untuk fragment
         _binding = FragmentBookmarkBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        bookmarkViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        // Inisialisasi RecyclerView dan Adapter
+        binding.rvBookmark.layoutManager = LinearLayoutManager(requireContext())
+
+        // Mengamati data di ViewModel
+        bookmarkViewModel.bookmarks.observe(viewLifecycleOwner) { bookmarks ->
+            // Menyambungkan Adapter dengan data
+            bookmarkAdapter = BookmarkAdapter(bookmarks)
+            binding.rvBookmark.adapter = bookmarkAdapter
         }
+
         return root
     }
 
