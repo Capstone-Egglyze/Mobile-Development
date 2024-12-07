@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
         // Tentukan destinasi top-level untuk navigasi
         val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+            setOf(R.id.navigation_home, R.id.navigation_bookmark, R.id.navigation_profile)
         )
 
         // Set up ActionBar dengan NavController
@@ -63,28 +63,6 @@ class MainActivity : AppCompatActivity() {
 
         // Set up BottomNavigationView dengan NavController
         navView.setupWithNavController(navController)
-
-        // Handle pemilihan item pada Bottom Navigation
-        navView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.navigation_home -> {
-                    // Tindakan untuk Home
-                    Log.d("MainActivity", "Home clicked")
-                    true
-                }
-                R.id.navigation_dashboard -> {
-                    // Tindakan untuk Dashboard
-                    Log.d("MainActivity", "Dashboard clicked")
-                    true
-                }
-                R.id.navigation_notifications -> {
-                    // Tindakan untuk Notifications
-                    Log.d("MainActivity", "Notifications clicked")
-                    true
-                }
-                else -> false
-            }
-        }
 
         // Set item default yang dipilih di Bottom Navigation
         if (savedInstanceState == null) {
