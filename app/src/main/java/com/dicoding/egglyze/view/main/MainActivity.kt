@@ -38,12 +38,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Listener untuk tombol logout
-        binding.logoutButton.setOnClickListener {
-            Firebase.auth.signOut()
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        binding.logoutButton.setOnClickListener {
+//            Firebase.auth.signOut()
+//            val intent = Intent(this, LoginActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         // Set up Bottom Navigation View
         val navView: BottomNavigationView = binding.navView

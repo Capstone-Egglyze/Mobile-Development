@@ -22,4 +22,11 @@
         android:name="com.dicoding.egglyze.view.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/predictionFragment"
+        android:name="com.example.yourapp.view.prediction.PredictionFragment"
+        android:label="Prediction Fragment"
+        tools:layout="@layout/fragment_prediction" />
+
 </navigation>

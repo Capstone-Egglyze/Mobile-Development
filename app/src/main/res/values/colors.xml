@@ -7,8 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="dark">#000000</color> <!-- Warna gelap -->
-    <color name="primary">#6200EE</color> <!-- Warna utama -->
+    <color name="dark">#1A1A1D</color> <!-- Warna gelap -->
+    <color name="primary">#9D4847</color> <!-- Warna utama -->
+    <color name="primary2">#C85E5C</color>
+    <color name="primary3">#FF8785</color>
 
     <color name="bone_white">#FFFCF9</color>
     <color name="green1">#4BA26A</color>
@@ -21,4 +23,5 @@
     <color name="gray">#B0ABAB</color>
     <color name="red1">#F95F5F</color>
     <color name="red2">#F6A9A9</color>
+    <color name="bounding_box_color">#FF9800</color>
 </resources>

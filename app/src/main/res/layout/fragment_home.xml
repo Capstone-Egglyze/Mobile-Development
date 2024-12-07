@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
-
+        <!-- Toolbar Section -->
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_home"
             android:layout_width="match_parent"
@@ -38,9 +38,9 @@
                 android:contentDescription="@string/xml_logo"
                 android:src="@drawable/logo_toolbar"
                 app:layout_constraintStart_toStartOf="parent" />
-
         </com.google.android.material.appbar.MaterialToolbar>
 
+        <!-- Separator Line -->
         <View
             android:id="@+id/view"
             android:layout_width="0dp"
@@ -52,6 +52,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar_home" />
 
+        <!-- Weather Section -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_weather"
             android:layout_width="0dp"
@@ -128,7 +129,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+        <!-- Info Button -->
         <ImageButton
             android:id="@+id/buttonInfo"
             android:layout_width="45dp"
@@ -137,8 +138,8 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/info_background"
             android:contentDescription="@string/xml_information"
-            android:src="@drawable/icon_info"
             android:elevation="5dp"
+            android:src="@drawable/icon_info"
             app:layout_constraintBottom_toTopOf="@+id/tv_SoilCondition"
             app:layout_constraintEnd_toStartOf="@+id/linear_main"
             app:layout_constraintHorizontal_bias="0.0"
@@ -146,19 +147,18 @@
             app:layout_constraintTop_toBottomOf="@+id/layout_weather"
             app:tint="@color/gray" />
 
+        <!-- Prediction Section -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linear_main"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            android:elevation="5dp"
             android:background="@drawable/start_prediction_main"
-            android:orientation="horizontal"
+            android:elevation="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonInfo"
             app:layout_constraintTop_toBottomOf="@+id/layout_weather">
-
 
             <TextView
                 android:id="@+id/textView"
@@ -188,6 +188,7 @@
                 app:tint="@color/white" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!-- Soil Condition Text -->
         <TextView
             android:id="@+id/tv_SoilCondition"
             android:layout_width="wrap_content"
@@ -200,65 +201,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linear_main" />
 
+        <!-- Scan Section -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/nitrogen_layout"
+            android:id="@+id/scan_layout"
             android:layout_width="0dp"
             android:layout_height="140dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/soil_condition"
-            app:layout_constraintEnd_toStartOf="@+id/phosphorus_layout"
+            app:layout_constraintEnd_toStartOf="@+id/history_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_SoilCondition">
 
-            <TextView
-                android:id="@+id/tv_nitrogen"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/xml_nitrogen"
-                android:textSize="20sp"
-                android:textColor="@color/gray"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent">
 
-            <TextView
-                android:id="@+id/tv_nitrogen_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/xml_xx"
-                android:textColor="@color/green1"
-                android:textSize="45sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_nitrogen" />
+                <ImageView
+                    android:id="@+id/scan_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/scanner"
+                    android:contentDescription="@string/xml_scan" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="10dp"
-                android:text="@string/xml_n"
-                android:textColor="@color/gray"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_nitrogen_value"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tv_nitrogen_value"
-                app:layout_constraintTop_toTopOf="@+id/tv_nitrogen_value"
-                app:layout_constraintVertical_bias="1.0" />
+                <TextView
+                    android:id="@+id/scan_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/xml_scan"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!-- History Section -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/phosphorus_layout"
+            android:id="@+id/history_layout"
             android:layout_width="0dp"
             android:layout_height="140dp"
             android:layout_marginStart="8dp"
@@ -266,292 +253,36 @@
             android:layout_marginEnd="30dp"
             android:background="@drawable/soil_condition"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/nitrogen_layout"
+            app:layout_constraintStart_toEndOf="@+id/scan_layout"
             app:layout_constraintTop_toBottomOf="@+id/tv_SoilCondition">
 
-            <TextView
-                android:id="@+id/tv_phosphorus"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/xml_phosphorus"
-                android:textSize="20sp"
-                android:textColor="@color/gray"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent">
 
-            <TextView
-                android:id="@+id/tv_phosphorus_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/xml_xx"
-                android:textColor="@color/green1"
-                android:textSize="45sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_phosphorus" />
+                <ImageView
+                    android:id="@+id/history_img"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_baseline_history_24"
+                    android:contentDescription="@string/history" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="10dp"
-                android:text="@string/xml_p"
-                android:textColor="@color/gray"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_phosphorus_value"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tv_phosphorus_value"
-                app:layout_constraintTop_toTopOf="@+id/tv_phosphorus_value"
-                app:layout_constraintVertical_bias="1.0" />
-
+                <TextView
+                    android:id="@+id/history_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/history"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/potassium_layout"
-            android:layout_width="0dp"
-            android:layout_height="140dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/soil_condition"
-            app:layout_constraintEnd_toStartOf="@+id/humidity_layout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nitrogen_layout">
-
-            <TextView
-                android:id="@+id/tv_potassium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/xml_potassium"
-                android:textSize="20sp"
-                android:textColor="@color/gray"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_potassium_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/xml_xx"
-                android:textColor="@color/green1"
-                android:textSize="45sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_potassium" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="10dp"
-                android:text="@string/xml_k"
-                android:textColor="@color/gray"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_potassium_value"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tv_potassium_value"
-                app:layout_constraintTop_toTopOf="@+id/tv_potassium_value"
-                app:layout_constraintVertical_bias="1.0" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/humidity_layout"
-            android:layout_width="0dp"
-            android:layout_height="140dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/soil_condition"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/potassium_layout"
-            app:layout_constraintTop_toBottomOf="@+id/phosphorus_layout">
-
-            <TextView
-                android:id="@+id/tv_humidity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/xml_humidity"
-                android:textSize="20sp"
-                android:textColor="@color/gray"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_humidity_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/xml_xx"
-                android:textColor="@color/green1"
-                android:textSize="45sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_humidity" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="10dp"
-                android:contentDescription="@string/xml_humidity"
-                android:src="@drawable/humid"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_humidity_value"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tv_humidity_value"
-                app:layout_constraintTop_toTopOf="@+id/tv_humidity_value"
-                app:layout_constraintVertical_bias="1.0" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ph_layout"
-            android:layout_width="0dp"
-            android:layout_height="140dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/soil_condition"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/temperature_layout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/potassium_layout">
-
-            <TextView
-                android:id="@+id/tv_ph"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/xml_ph"
-                android:textSize="20sp"
-                android:textColor="@color/gray"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_ph_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/xml_xx"
-                android:textColor="@color/green1"
-                android:textSize="45sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ph" />
-
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="10dp"
-                android:contentDescription="@string/xml_ph"
-                android:src="@drawable/phwater"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_ph_value"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tv_ph_value"
-                app:layout_constraintTop_toTopOf="@+id/tv_ph_value"
-                app:layout_constraintVertical_bias="1.0" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/temperature_layout"
-            android:layout_width="0dp"
-            android:layout_height="140dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/soil_condition"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ph_layout"
-            app:layout_constraintTop_toBottomOf="@id/humidity_layout">
-
-            <TextView
-                android:id="@+id/tv_temp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/xml_temperature"
-                android:textSize="20sp"
-                android:textColor="@color/gray"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_temp_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/xml_xx"
-                android:textColor="@color/green1"
-                android:textSize="45sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_temp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:text="@string/xml_celcius"
-                android:textColor="@color/gray"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_temp_value"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tv_temp_value"
-                app:layout_constraintTop_toTopOf="@+id/tv_temp_value"
-                app:layout_constraintVertical_bias="0.0" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:textColor="@color/green1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>
