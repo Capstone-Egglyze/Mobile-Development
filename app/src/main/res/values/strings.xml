@@ -12,6 +12,27 @@
     <string name="login_text">Login</string>
     <string name="forgot_password_text">Lupa Password?</string>
 
+    <!--XML Home-->
+    <string name="xml_home">Home</string>
+    <string name="xml_xx">xx</string>
+    <string name="xml_celcius">°c</string>
+    <string name="xml_weather_desc">weather desc</string>
+    <string name="xml_location">location</string>
+    <string name="xml_information">Information</string>
+    <string name="xml_refresh_soil">Refresh Soil</string>
+    <string name="xml_soil_condition">Soil Condition</string>
+    <string name="xml_nitrogen">Nitrogen</string>
+    <string name="xml_n">N</string>
+    <string name="xml_phosphorus">Phosphorus</string>
+    <string name="xml_p">P</string>
+    <string name="xml_potassium">Potassium</string>
+    <string name="xml_k">K</string>
+    <string name="xml_humidity">Humidity</string>
+    <string name="xml_ph">pH</string>
+    <string name="xml_temperature">Temperature</string>
+    <string name="xml_logo">tanamin ai logo</string>
+    <string name="xml_current_weather">current weather condition</string>
+
     <!--Menu-->
     <string name="home">Home</string>
     <string name="history">History</string>
