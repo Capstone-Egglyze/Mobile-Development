@@ -14,9 +14,7 @@
 
     <!--XML Home-->
     <string name="xml_home">Home</string>
-    <string name="xml_xx">xx</string>
     <string name="xml_celcius">°c</string>
-    <string name="xml_weather_desc">weather desc</string>
     <string name="xml_location">location</string>
     <string name="xml_information">Information</string>
     <string name="xml_refresh_soil">Refresh Soil</string>
@@ -31,9 +29,11 @@
     <string name="xml_ph">pH</string>
     <string name="xml_temperature">Temperature</string>
     <string name="xml_logo">tanamin ai logo</string>
-    <string name="xml_current_weather">current weather condition</string>
     <string name="xml_scan">Scan Telur</string>
     <string name="xml_history">History</string>
+    <string name="xml_egg">Egg</string>
+    <string name="xml_rp">Rp xxx</string>
+    <string name="xml_saldo">Saldo Anda</string>
 
     <!--Menu-->
     <string name="home">Home</string>
