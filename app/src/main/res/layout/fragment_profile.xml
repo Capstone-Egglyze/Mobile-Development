@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.profile.ProfileFragment">
 
+    <!-- Toolbar Section -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_bookmark"
         android:layout_width="match_parent"
@@ -19,11 +20,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/xml_settings"
+            android:text="@string/xml_profile"
             android:textSize="24sp"
             android:textStyle="bold"/>
     </com.google.android.material.appbar.MaterialToolbar>
 
+    <!-- Separator Line -->
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
@@ -35,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_bookmark" />
 
-
+    <!-- Profile Section -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linear_main"
         android:layout_width="0dp"
@@ -45,10 +47,9 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/settings_background"
         android:elevation="8dp"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_start_prediction">
+        app:layout_constraintTop_toBottomOf="@id/view">
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -63,7 +64,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/green1" />
-
 
         <TextView
             android:id="@+id/nameSection"
@@ -87,16 +87,14 @@
             android:textColor="?attr/android:textColorSecondary"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageButton"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.666" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Email Section -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/emailSection"
         android:layout_width="0dp"
@@ -106,11 +104,9 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/settings_background"
         android:elevation="8dp"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear_main">
-
+        app:layout_constraintTop_toBottomOf="@id/linear_main">
 
         <ImageButton
             android:id="@+id/imageEmail"
@@ -125,7 +121,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/green1" />
-
 
         <TextView
             android:id="@+id/tv_email"
@@ -149,14 +144,13 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageEmail"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.666" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Theme Section -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/themeSection"
         android:layout_width="0dp"
@@ -166,11 +160,9 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/settings_background"
         android:elevation="8dp"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailSection">
-
+        app:layout_constraintTop_toBottomOf="@id/emailSection">
 
         <ImageButton
             android:id="@+id/imageTheme"
@@ -185,7 +177,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/green1" />
-
 
         <TextView
             android:id="@+id/tv_theme"
@@ -230,95 +221,21 @@
             app:tint="@color/green1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rateSection"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/settings_background"
-        android:elevation="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/themeSection">
-
-
-        <ImageButton
-            android:id="@+id/imageRate"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/settings_icon"
-            android:contentDescription="@string/xml_language"
-            android:src="@drawable/icon_translate"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tv_rate"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/green1" />
-
-
-        <TextView
-            android:id="@+id/tv_rate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="@string/xml_language"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/img_arrow_rate"
-            app:layout_constraintStart_toEndOf="@+id/imageRate"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.38" />
-
-        <TextView
-            android:id="@+id/settingsLanguage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:text="@string/xml_english_indonesia"
-            android:textColor="?attr/android:textColorSecondary"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/img_arrow_rate"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageRate"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.666" />
-
-        <ImageView
-            android:id="@+id/img_arrow_rate"
-            android:layout_width="0dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="4dp"
-            android:contentDescription="@string/xml_arrow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/arrow_right"
-            app:tint="@color/green1" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <!-- Logout Section -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/logout_section"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="236dp"
         android:background="@drawable/settings_background"
         android:elevation="8dp"
-        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rateSection"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/themeSection">
 
 
         <ImageButton

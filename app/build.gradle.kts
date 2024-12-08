@@ -82,4 +82,13 @@ dependencies {
     implementation("com.google.android.gms:play-services-tflite-gpu:16.2.0")
     implementation("org.tensorflow:tensorflow-lite-gpu:2.9.0")
 
+    // Firebase Libraries
+    implementation ("com.google.firebase:firebase-auth-ktx")
+    implementation ("com.google.firebase:firebase-firestore-ktx")
+    implementation ("com.google.firebase:firebase-storage-ktx")
+
+// Image Loading Library
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
+
 }
