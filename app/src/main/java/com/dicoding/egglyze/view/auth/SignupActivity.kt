@@ -28,13 +28,37 @@ class SignupActivity : AppCompatActivity() {
         binding.signupButton.setOnClickListener {
             val email = binding.emailEditText.text.toString().trim()
             val password = binding.passwordEditText.text.toString().trim()
+            val confirmPassword = binding.confirmPasswordEditText.text.toString().trim()
 
-            // Pastikan email dan password tidak kosong
+            // Validasi email, password, dan confirm password
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(baseContext, "Email dan Password tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    baseContext,
+                    "Email dan Password tidak boleh kosong",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
 
+            if (password.length < 6) {
+                Toast.makeText(
+                    baseContext,
+                    "Password harus memiliki minimal 6 karakter",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            if (password != confirmPassword) {
+                Toast.makeText(
+                    baseContext,
+                    "Password dan Konfirmasi Password tidak sama",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            // Proses pendaftaran dengan Firebase Authentication
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
@@ -44,12 +68,18 @@ class SignupActivity : AppCompatActivity() {
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                         finish()
+                    } else {
+                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                        Toast.makeText(
+                            baseContext,
+                            "Pendaftaran gagal. Silakan coba lagi.",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-
                 }
         }
-
     }
+
     override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
@@ -60,9 +90,7 @@ class SignupActivity : AppCompatActivity() {
             Log.d(TAG, "User already authenticated, going to MainActivity")
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish()  // Menutup SignupActivity
+            finish() // Menutup SignupActivity
         }
     }
-
-
 }

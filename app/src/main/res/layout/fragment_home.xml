@@ -35,7 +35,7 @@
                 android:id="@+id/img_logo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:contentDescription="@string/xml_logo"
+                android:contentDescription="@string/xml_egg"
                 android:src="@drawable/logo_toolbar"
                 app:layout_constraintStart_toStartOf="parent" />
         </com.google.android.material.appbar.MaterialToolbar>
