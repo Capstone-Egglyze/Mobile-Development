@@ -116,7 +116,7 @@
             android:contentDescription="@string/xml_information"
             android:elevation="5dp"
             android:src="@drawable/icon_info"
-            app:layout_constraintBottom_toTopOf="@+id/tv_SoilCondition"
+            app:layout_constraintBottom_toTopOf="@+id/tv_fitur"
             app:layout_constraintEnd_toStartOf="@+id/linear_main"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -137,10 +137,10 @@
             app:layout_constraintTop_toBottomOf="@+id/layout_egg">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tv_premium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/xml_refresh_soil"
+                android:text="@string/xml_premium"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -150,28 +150,28 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/img_arrow"
+                android:id="@+id/img_premium"
                 android:layout_width="0dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="4dp"
-                android:contentDescription="@string/xml_refresh_soil"
+                android:contentDescription="@string/xml_premium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_refresh"
+                app:srcCompat="@drawable/ic_baseline_attach_money_24"
                 app:tint="@color/white" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Soil Condition Text -->
+        <!-- Fitur Text -->
         <TextView
-            android:id="@+id/tv_SoilCondition"
+            android:id="@+id/tv_fitur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:text="@string/xml_soil_condition"
+            android:text="@string/xml_fitur"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -185,10 +185,10 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/soil_condition"
+            android:background="@drawable/egg_condition"
             app:layout_constraintEnd_toStartOf="@+id/history_layout"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_SoilCondition">
+            app:layout_constraintTop_toBottomOf="@+id/tv_fitur">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -227,10 +227,10 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/soil_condition"
+            android:background="@drawable/egg_condition"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/scan_layout"
-            app:layout_constraintTop_toBottomOf="@+id/tv_SoilCondition">
+            app:layout_constraintTop_toBottomOf="@+id/tv_fitur">
 
             <LinearLayout
                 android:layout_width="wrap_content"

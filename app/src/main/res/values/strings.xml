@@ -17,8 +17,6 @@
     <string name="xml_celcius">°c</string>
     <string name="xml_location">location</string>
     <string name="xml_information">Information</string>
-    <string name="xml_refresh_soil">Refresh Soil</string>
-    <string name="xml_soil_condition">Soil Condition</string>
     <string name="xml_nitrogen">Nitrogen</string>
     <string name="xml_n">N</string>
     <string name="xml_phosphorus">Phosphorus</string>
@@ -34,6 +32,9 @@
     <string name="xml_egg">Egg</string>
     <string name="xml_rp">Rp xxx</string>
     <string name="xml_saldo">Saldo Anda</string>
+    <string name="dialog_info">Aplikasi ini bertujuan untuk membantu dalam proses pengecekan kondisi telur, apakah telur tersebut masih layak untuk dikonsumsi atau tidak</string>
+    <string name="xml_premium">Premium</string>
+    <string name="xml_fitur">Fitur</string>
 
     <!--Menu-->
     <string name="home">Home</string>

@@ -61,8 +61,10 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+//    Splash Screen
     implementation ("androidx.core:core-splashscreen:1.0.0")
 
+//    Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
@@ -90,5 +92,8 @@ dependencies {
 // Image Loading Library
     implementation ("com.squareup.picasso:picasso:2.71828")
 
+
+//    Circle
+    implementation("androidx.cardview:cardview:1.0.0")
 
 }
