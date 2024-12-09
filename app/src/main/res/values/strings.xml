@@ -35,6 +35,8 @@
     <string name="dialog_info">Aplikasi ini bertujuan untuk membantu dalam proses pengecekan kondisi telur, apakah telur tersebut masih layak untuk dikonsumsi atau tidak</string>
     <string name="xml_premium">Premium</string>
     <string name="xml_fitur">Fitur</string>
+    <string name="belumpunyaakun">Belum punya akun?</string>
+
 
     <!--Menu-->
     <string name="home">Home</string>
