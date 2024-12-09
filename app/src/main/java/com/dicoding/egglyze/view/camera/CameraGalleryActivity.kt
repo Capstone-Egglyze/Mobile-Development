@@ -155,11 +155,23 @@ class CameraGalleryActivity : AppCompatActivity() {
         }
     }
 
-
-
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
+//    fun validateImage(imageUri: Uri) {
+//        if (isEggImage(imageUri)) {
+//            Toast.makeText(context, "Ini gambar telur", Toast.LENGTH_SHORT).show()
+//        } else {
+//            Toast.makeText(context, "Ini bukan gambar telur", Toast.LENGTH_SHORT).show()
+//        }
+//    }
+//
+//    fun isEggImage(imageUri: Uri): Boolean {
+//        // Logika untuk memeriksa apakah gambar adalah telur
+//        val label = recognizeImage(imageUri) // Fungsi untuk mengenali gambar
+//        return label == "egg"
+//    }
 
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
