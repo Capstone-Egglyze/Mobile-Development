@@ -32,7 +32,7 @@ class ProfileFragment : Fragment() {
         }
 
         // Mengamati perubahan data profil
-        profileViewModel.userProfile.observe(viewLifecycleOwner) { profile ->
+        profileViewModel.user.observe(viewLifecycleOwner) { profile ->
             binding.profileName.text = profile?.name ?: "Nama Tidak Tersedia"
             binding.profileEmail.text = profile?.email ?: "Email Tidak Tersedia"
         }
