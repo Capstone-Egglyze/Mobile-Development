@@ -47,7 +47,7 @@ class FirebaseAuthHelper {
         auth.signOut()
     }
 
-    // Fungsi untuk menyimpan data pengguna ke Realtime Database
+    // Fungsi untuk menyimpan data pengguna ke Firebase Realtime Database
     private fun saveUserData(
         userId: String,
         name: String,

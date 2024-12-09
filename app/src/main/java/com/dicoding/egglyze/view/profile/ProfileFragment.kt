@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -33,6 +34,7 @@ class ProfileFragment : Fragment() {
 
         // Mengamati perubahan data profil
         profileViewModel.user.observe(viewLifecycleOwner) { profile ->
+            Log.d("ProfileFragment", "Profile: ${profile?.name}, ${profile?.email}")  // Log data
             binding.profileName.text = profile?.name ?: "Nama Tidak Tersedia"
             binding.profileEmail.text = profile?.email ?: "Email Tidak Tersedia"
         }

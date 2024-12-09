@@ -15,8 +15,14 @@ class BookmarkViewModel : ViewModel() {
         // Data bookmark dummy
         _bookmarks.value = listOf(
             Bookmark("Telur Ayam", "Aug 15, 2024", R.drawable.egg),
-            Bookmark("Telur Bebek", "Sep 22, 2024", R.drawable.egg),
-            Bookmark("Telur Puyuh", "Nov 5, 2024", R.drawable.egg)
+            Bookmark("Telur Ayam", "Sep 22, 2024", R.drawable.egg),
+            Bookmark("Telur Ayam", "Nov 5, 2024", R.drawable.egg),
+            Bookmark("Telur Ayam", "Aug 15, 2024", R.drawable.egg),
+            Bookmark("Telur Ayam", "Sep 22, 2024", R.drawable.egg),
+            Bookmark("Telur Ayam", "Nov 5, 2024", R.drawable.egg),
+            Bookmark("Telur Ayam", "Aug 15, 2024", R.drawable.egg),
+            Bookmark("Telur Ayam", "Sep 22, 2024", R.drawable.egg),
+            Bookmark("Telur Ayam", "Nov 5, 2024", R.drawable.egg)
         )
     }
 }
