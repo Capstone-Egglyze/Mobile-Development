@@ -14,7 +14,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -63,7 +62,7 @@
             app:layout_constraintEnd_toStartOf="@+id/nameSection"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/green1" />
+            app:tint="@color/primary2" />
 
         <TextView
             android:id="@+id/nameSection"
@@ -91,6 +90,33 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.666" />
 
+        <!-- Edit Text for Editing Name -->
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="14dp"
+            android:visibility="gone"
+            android:textSize="12sp"
+            android:hint="Enter new name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.666" />
+
+        <!-- Save Button for Name -->
+        <Button
+            android:id="@+id/saveNameButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Email Section -->
@@ -119,7 +145,7 @@
             app:layout_constraintEnd_toStartOf="@+id/tv_email"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/green1" />
+            app:tint="@color/primary2" />
 
         <TextView
             android:id="@+id/tv_email"
@@ -147,6 +173,33 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.666" />
 
+        <!-- Edit Text for Editing Email -->
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="14dp"
+            android:visibility="gone"
+            android:textSize="12sp"
+            android:hint="Enter new email"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageEmail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.666" />
+
+        <!-- Save Button for Email -->
+        <Button
+            android:id="@+id/saveEmailButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editEmail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Theme Section -->
@@ -175,7 +228,7 @@
             app:layout_constraintEnd_toStartOf="@+id/tv_theme"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/green1" />
+            app:tint="@color/primary2" />
 
         <TextView
             android:id="@+id/tv_theme"
@@ -216,7 +269,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/arrow_right"
-            app:tint="@color/green1" />
+            app:tint="@color/primary2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Logout Section -->
@@ -245,7 +298,7 @@
             app:layout_constraintEnd_toStartOf="@+id/tv_logout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/green1" />
+            app:tint="@color/primary2" />
 
         <TextView
             android:id="@+id/tv_logout"
@@ -271,7 +324,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/arrow_right"
-            app:tint="@color/green1" />
+            app:tint="@color/primary2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,27 +12,46 @@ class ProfileViewModel : ViewModel() {
     private val db = FirebaseDatabase.getInstance().reference
     private val auth = FirebaseAuth.getInstance()
 
-    private val _text = MutableLiveData<String>()
-    val text: LiveData<String> get() = _text
-
     private val _user = MutableLiveData<User?>()
-    val user: MutableLiveData<User?> get() = _user
+    val user: LiveData<User?> get() = _user
 
     fun loadUserProfile() {
         val userId = auth.currentUser?.uid ?: return
         db.child("users").child(userId).get()
             .addOnSuccessListener { snapshot ->
                 val user = snapshot.getValue(User::class.java)
-                if (user != null) {
-                    _user.value = user
-                    _text.value = user.name ?: "Nama Tidak Tersedia"
-                } else {
-                    _text.value = "User tidak ditemukan"
-                }
+                _user.value = user
             }
             .addOnFailureListener {
                 _user.value = null
-                _text.value = "Gagal memuat data"
+            }
+    }
+
+    // Fungsi untuk memperbarui nama pengguna
+    fun updateUserName(newName: String, onComplete: (Boolean) -> Unit) {
+        val userId = auth.currentUser?.uid ?: return
+        val userMap = mapOf("name" to newName)
+
+        db.child("users").child(userId).updateChildren(userMap)
+            .addOnSuccessListener {
+                onComplete(true)  // Pembaruan berhasil
+            }
+            .addOnFailureListener {
+                onComplete(false)  // Pembaruan gagal
+            }
+    }
+
+    // Fungsi untuk memperbarui email pengguna
+    fun updateUserEmail(newEmail: String, onComplete: (Boolean) -> Unit) {
+        val userId = auth.currentUser?.uid ?: return
+        val userMap = mapOf("email" to newEmail)
+
+        db.child("users").child(userId).updateChildren(userMap)
+            .addOnSuccessListener {
+                onComplete(true)  // Pembaruan berhasil
+            }
+            .addOnFailureListener {
+                onComplete(false)  // Pembaruan gagal
             }
     }
 }

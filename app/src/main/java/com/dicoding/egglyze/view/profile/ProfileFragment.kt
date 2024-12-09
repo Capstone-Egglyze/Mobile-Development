@@ -2,16 +2,20 @@ package com.dicoding.egglyze.view.profile
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.util.Log
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.dicoding.egglyze.databinding.FragmentProfileBinding
 import com.dicoding.egglyze.view.auth.LoginActivity
 import com.dicoding.egglyze.viewmodel.ProfileViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -27,14 +31,49 @@ class ProfileFragment : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
-        // Listener untuk tombol logout
+        // Listener untuk tombol edit nama
+        binding.imageButton.setOnClickListener {
+            toggleEditName()
+        }
+
+        // Listener untuk tombol edit email
+        binding.imageEmail.setOnClickListener {
+            toggleEditEmail()
+        }
+
+        // Listener untuk tombol save nama
+        binding.saveNameButton.setOnClickListener {
+            val newName = binding.editName.text.toString()
+            profileViewModel.updateUserName(newName) { success ->
+                if (success) {
+                    binding.profileName.text = newName
+                    toggleEditName() // Menyembunyikan EditText setelah berhasil
+                } else {
+                    // Menampilkan error
+                    Toast.makeText(requireContext(), "Gagal memperbarui nama", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        // Listener untuk tombol save email
+        binding.saveEmailButton.setOnClickListener {
+            val newEmail = binding.editEmail.text.toString()
+            profileViewModel.updateUserEmail(newEmail) { success ->
+                if (success) {
+                    binding.profileEmail.text = newEmail
+                    toggleEditEmail() // Menyembunyikan EditText setelah berhasil
+                } else {
+                    // Menampilkan error
+                    Toast.makeText(requireContext(), "Gagal memperbarui email", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
         binding.logoutSection.setOnClickListener {
             showLogoutConfirmationDialog()
         }
 
         // Mengamati perubahan data profil
         profileViewModel.user.observe(viewLifecycleOwner) { profile ->
-            Log.d("ProfileFragment", "Profile: ${profile?.name}, ${profile?.email}")  // Log data
             binding.profileName.text = profile?.name ?: "Nama Tidak Tersedia"
             binding.profileEmail.text = profile?.email ?: "Email Tidak Tersedia"
         }
@@ -45,6 +84,27 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
+    // Fungsi untuk menampilkan dan menyembunyikan EditText untuk nama
+    private fun toggleEditName() {
+        val isVisible = binding.editName.visibility == View.VISIBLE
+        binding.editName.visibility = if (isVisible) View.GONE else View.VISIBLE
+        binding.saveNameButton.visibility = if (isVisible) View.GONE else View.VISIBLE
+
+        if (!isVisible) {
+            binding.editName.setText(binding.profileName.text)
+        }
+    }
+
+    // Fungsi untuk menampilkan dan menyembunyikan EditText untuk email
+    private fun toggleEditEmail() {
+        val isVisible = binding.editEmail.visibility == View.VISIBLE
+        binding.editEmail.visibility = if (isVisible) View.GONE else View.VISIBLE
+        binding.saveEmailButton.visibility = if (isVisible) View.GONE else View.VISIBLE
+
+        if (!isVisible) {
+            binding.editEmail.setText(binding.profileEmail.text)
+        }
+    }
     private fun showLogoutConfirmationDialog() {
         val alertDialog = AlertDialog.Builder(requireContext())
             .setTitle("Konfirmasi Logout")
@@ -66,6 +126,9 @@ class ProfileFragment : Fragment() {
 
         alertDialog.show()
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
