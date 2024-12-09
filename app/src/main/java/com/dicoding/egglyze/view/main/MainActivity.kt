@@ -37,14 +37,6 @@ class MainActivity : AppCompatActivity() {
             Log.d("MainActivity", "User logged in: ${currentUser.email}")
         }
 
-        // Listener untuk tombol logout
-//        binding.logoutButton.setOnClickListener {
-//            Firebase.auth.signOut()
-//            val intent = Intent(this, LoginActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-
         // Set up Bottom Navigation View
         val navView: BottomNavigationView = binding.navView
 
