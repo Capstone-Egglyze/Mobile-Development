@@ -19,6 +19,7 @@ class SignupActivity : AppCompatActivity() {
 
         authHelper = FirebaseAuthHelper()
 
+        // Listener untuk tombol signup
         binding.signupButton.setOnClickListener {
             val email = binding.emailEditText.text.toString().trim()
             val password = binding.passwordEditText.text.toString().trim()
@@ -51,6 +52,12 @@ class SignupActivity : AppCompatActivity() {
                     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+
+        // Menambahkan listener untuk tombol login
+        binding.loginText.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }
