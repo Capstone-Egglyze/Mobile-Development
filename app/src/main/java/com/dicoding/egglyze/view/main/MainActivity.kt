@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         // Tentukan destinasi top-level untuk navigasi
         val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.navigation_home, R.id.navigation_bookmark, R.id.navigation_profile)
+            setOf(R.id.navigation_home, R.id.navigation_history, R.id.navigation_profile)
         )
 
         // Set up ActionBar dengan NavController

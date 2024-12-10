@@ -41,6 +41,7 @@ android {
     }
 }
 
+
 dependencies {
     implementation(libs.firebase.database)
     implementation(libs.androidx.datastore.preferences.core.jvm)
@@ -105,16 +106,18 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
 
     // Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
     // Converter Gson untuk parsing JSON
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // OkHttp (opsional, untuk logging dan debugging HTTP requests/responses)
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
 //    Preferences Datastore
-    implementation ("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 
+//    Animasi
+    implementation("com.airbnb.android:lottie:6.0.0")
 
 }

@@ -1,4 +1,4 @@
-package com.dicoding.egglyze.view.bookmark
+package com.dicoding.egglyze.view.history
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,35 +7,35 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.egglyze.databinding.FragmentBookmarkBinding
+import com.dicoding.egglyze.databinding.FragmentHistoryBinding
 
-class BookmarkFragment : Fragment() {
+class HistoryFragment : Fragment() {
 
-    private var _binding: FragmentBookmarkBinding? = null
+    private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var bookmarkAdapter: BookmarkAdapter
-    private lateinit var bookmarkViewModel: BookmarkViewModel
+    private lateinit var historyAdapter: HistoryAdapter
+    private lateinit var historyViewModel: HistoryViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inisialisasi ViewModel
-        bookmarkViewModel = ViewModelProvider(this).get(BookmarkViewModel::class.java)
+        historyViewModel = ViewModelProvider(this).get(HistoryViewModel::class.java)
 
         // Menginflate binding untuk fragment
-        _binding = FragmentBookmarkBinding.inflate(inflater, container, false)
+        _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         // Inisialisasi RecyclerView dan Adapter
-        binding.rvBookmark.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvHistory.layoutManager = LinearLayoutManager(requireContext())
 
         // Mengamati data di ViewModel
-        bookmarkViewModel.bookmarks.observe(viewLifecycleOwner) { bookmarks ->
+        historyViewModel.history.observe(viewLifecycleOwner) { historys ->
             // Menyambungkan Adapter dengan data
-            bookmarkAdapter = BookmarkAdapter(bookmarks)
-            binding.rvBookmark.adapter = bookmarkAdapter
+            historyAdapter = HistoryAdapter(historys)
+            binding.rvHistory.adapter = historyAdapter
         }
 
         return root

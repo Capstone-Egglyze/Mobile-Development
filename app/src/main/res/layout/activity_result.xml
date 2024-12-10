@@ -6,21 +6,26 @@
     tools:context=".view.camera.ResultActivity">
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <ImageView
-            android:id="@+id/result_image"
+            android:id="@+id/resultImage"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:scaleType="fitCenter" />
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp" />
 
         <TextView
-            android:id="@+id/result_text"
+            android:id="@+id/resultTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/result" />
+            android:textSize="16sp"
+            android:text="Hasil analisis akan ditampilkan di sini"
+            android:gravity="center" />
     </LinearLayout>
+
 </ScrollView>

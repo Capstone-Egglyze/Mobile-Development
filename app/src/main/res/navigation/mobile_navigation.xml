@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_bookmark"
-        android:name="com.dicoding.egglyze.view.bookmark.BookmarkFragment"
-        android:label="@string/title_bookmark"
-        tools:layout="@layout/fragment_bookmark" />
+        android:id="@+id/navigation_history"
+        android:name="com.dicoding.egglyze.view.history.HistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_profile"

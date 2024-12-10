@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.bookmark.BookmarkFragment">
+    tools:context=".view.history.HistoryFragment">
 
     <!-- Material Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar_bookmark"
+        android:id="@+id/toolbar_history"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/xml_result_bookmark"
+            android:text="@string/xml_result_history"
             android:textSize="24sp"
             android:textStyle="bold"/>
     </com.google.android.material.appbar.MaterialToolbar>
@@ -35,7 +35,7 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_bookmark" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_history" />
 
     <!-- Text Showing Saved Result Message -->
     <TextView
@@ -44,16 +44,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="@string/xml_your_soil_result_saved"
+        android:text="@string/xml_history"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_bookmark"
-        app:layout_constraintBottom_toTopOf="@id/rv_bookmark" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_history"
+        app:layout_constraintBottom_toTopOf="@id/rv_history" />
 
-    <!-- RecyclerView for Bookmarks -->
+    <!-- RecyclerView for History -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_bookmark"
+        android:id="@+id/rv_history"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="8dp"
@@ -62,5 +62,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_soil_result"
-        tools:listitem="@layout/item_bookmark" />
+        tools:listitem="@layout/item_history" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@
 
     <!-- Toolbar Section -->
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar_bookmark"
+        android:id="@+id/toolbar_history"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_bookmark" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_history" />
 
     <!-- Profile Section -->
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -15,6 +15,7 @@ import androidx.core.net.toUri
 import com.dicoding.egglyze.R
 import com.dicoding.egglyze.data.remote.retrofit.ApiConfig
 import com.dicoding.egglyze.databinding.ActivityCameraGalleryBinding
+import com.dicoding.egglyze.view.animation.LoadingSplashActivity
 import com.dicoding.egglyze.view.camera.CameraActivity.Companion.CAMERAX_RESULT
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -114,34 +115,13 @@ class CameraGalleryActivity : AppCompatActivity() {
     }
 
     private fun analyzeImage(uri: Uri) {
-        val filePath = uriToFile(uri) ?: run {
-            showToast("Gagal memuat file gambar")
-            return
+        // Panggil LoadingSplashActivity dan teruskan URI gambar
+        val intent = Intent(this, LoadingSplashActivity::class.java).apply {
+            putExtra("image_uri", uri.toString())
         }
-
-        val file = File(filePath)
-        val requestFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
-        val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
-
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val response = ApiConfig.getApiService().uploadImage(body)
-                withContext(Dispatchers.Main) {
-                    if (response.prediction != null) {
-                        showToast("Prediksi: ${response.prediction.predictedClass} dengan kepercayaan ${response.prediction.confidence}")
-                        Log.d("Analyze Image", "Confidence: ${response.prediction.confidence}")
-                    } else {
-                        showToast("Analisis gagal: ${response.message}")
-                    }
-                }
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    showToast("Error: ${e.message}")
-                    Log.e("Analyze Image", "Error: ${e.message}", e)
-                }
-            }
-        }
+        startActivity(intent)
     }
+
 
     private fun uriToFile(uri: Uri): String? {
         val cursor = contentResolver.query(uri, null, null, null, null)
