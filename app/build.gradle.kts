@@ -43,6 +43,7 @@ android {
 
 dependencies {
     implementation(libs.firebase.database)
+    implementation(libs.androidx.datastore.preferences.core.jvm)
 
     val cameraxVersion = "1.3.0"
 
@@ -111,6 +112,9 @@ dependencies {
 
     // OkHttp (opsional, untuk logging dan debugging HTTP requests/responses)
     implementation ("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
+//    Preferences Datastore
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
 
 
 }

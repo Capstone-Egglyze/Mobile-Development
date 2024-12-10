@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.dicoding.egglyze.databinding.FragmentProfileBinding
 import com.dicoding.egglyze.view.auth.LoginActivity
+import com.dicoding.egglyze.view.setting.SettingActivity
 import com.dicoding.egglyze.viewmodel.ProfileViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -70,6 +71,12 @@ class ProfileFragment : Fragment() {
         }
         binding.logoutSection.setOnClickListener {
             showLogoutConfirmationDialog()
+        }
+
+        //Tambahkan Listener untuk themeSection**
+        binding.themeSection.setOnClickListener {
+            val intent = Intent(requireContext(), SettingActivity::class.java)
+            startActivity(intent)
         }
 
         // Mengamati perubahan data profil

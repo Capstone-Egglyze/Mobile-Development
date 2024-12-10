@@ -68,10 +68,11 @@
     <string name="xml_language">Language</string>
     <string name="xml_english_indonesia">english/indonesia</string>
     <string name="xml_logout">Logout</string>
-    <string name="xml_cancel">   cancel   </string>
+    <string name="xml_cancel">cancel</string>
     <string name="xml_are_you_sure_want_to_logout">Are you sure want to logout?</string>
     <string name="xml_yes_logout">Yes, logout</string>
     <string name="xml_info_desc">The soil sensor updated every 5 minute. please click the refresh button to update the soil data</string>
+    <string name="dark_mode">Dark Mode</string>
 
     <!--XML Act Result-->
     <string name="xml_result">Result</string>
