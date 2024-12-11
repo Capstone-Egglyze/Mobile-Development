@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Your Plan"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- Package Cards -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvBasicPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Basic Plan"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvBasicDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Access to basic features"
+                    android:textSize="14sp"
+                    android:paddingTop="4dp" />
+
+                <Button
+                    android:id="@+id/btnSubscribeBasic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Subscribe - $5/month"
+                    android:backgroundTint="@color/primary" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvPremiumPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Premium Plan"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPremiumDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Access to all features + 7-day trial"
+                    android:textSize="14sp"
+                    android:paddingTop="4dp" />
+
+                <Button
+                    android:id="@+id/btnSubscribePremium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Subscribe - $10/month"
+                    android:backgroundTint="@color/primary" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Payment Methods -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Methods"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/imgGooglePay"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/gp"
+                android:layout_marginEnd="16dp" />
+
+            <ImageView
+                android:id="@+id/imgCreditCard"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/cc" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
