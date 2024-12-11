@@ -19,8 +19,12 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import android.animation.ObjectAnimator
+import android.util.Log
 import android.view.animation.LinearInterpolator
 import android.widget.TextView
+import com.dicoding.egglyze.data.database.MyDatabase
+import com.dicoding.egglyze.data.database.DatabaseEntity
+import com.dicoding.egglyze.data.database.di.Injection
 
 class LoadingSplashActivity : AppCompatActivity() {
 
@@ -63,6 +67,21 @@ class LoadingSplashActivity : AppCompatActivity() {
                 val response = ApiConfig.getApiService().uploadImage(body)
                 withContext(Dispatchers.Main) {
                     if (response.prediction != null) {
+                        val confidence = response.prediction.confidence ?: "0%"  // Nilai default jika null
+                        val predictedClass = response.prediction.predictedClass ?: "Unknown"
+
+                        val historyEntity = DatabaseEntity(
+                            image = uri.toString(),
+                            predictAt = System.currentTimeMillis().toString(),
+                            result = predictedClass,
+                            confidence = confidence,
+                            predictedClass = predictedClass
+                        )
+
+                        val databaseDao = Injection.provideDatabaseDao(this@LoadingSplashActivity)
+                        Log.d("DAO", "DAO instance: $databaseDao")
+                        databaseDao.insert(historyEntity)
+
                         val intent = Intent(this@LoadingSplashActivity, ResultActivity::class.java).apply {
                             putExtra(ResultActivity.EXTRA_IMAGE_URI, uri.toString())
                             putExtra(ResultActivity.EXTRA_RESULT, response.prediction.predictedClass)
@@ -71,12 +90,20 @@ class LoadingSplashActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                 } else {
-                        Toast.makeText(this@LoadingSplashActivity, "Analisis gagal: ${response.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@LoadingSplashActivity,
+                            "Analisis gagal: ${response.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        Log.d("LoadingSplashActivity", "Analisis gagal: ${response.message}")
+
                         finish()
                     }
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
+                    Log.e("AnalyzeImage", "Error occurred: ${e.message}", e)
                     Toast.makeText(this@LoadingSplashActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
                     finish()
                 }

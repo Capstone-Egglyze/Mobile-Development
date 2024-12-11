@@ -19,7 +19,7 @@
         android:padding="8dp">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_plant"
+            android:id="@+id/card_history"
             android:layout_width="180dp"
             android:layout_height="120dp"
             android:layout_marginStart="3dp"
@@ -28,12 +28,11 @@
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_readmore"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/img_plant"
+                android:id="@+id/img_history"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/xml_result"
@@ -43,7 +42,7 @@
 
 
         <TextView
-            android:id="@+id/tv_plant"
+            android:id="@+id/tv_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/green1"
@@ -51,7 +50,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/card_plant"
+            app:layout_constraintStart_toEndOf="@+id/card_history"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.25"
             tools:text="Telur" />
@@ -67,39 +66,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintStart_toEndOf="@+id/card_plant"
-            app:layout_constraintTop_toBottomOf="@+id/tv_plant"
+            app:layout_constraintStart_toEndOf="@+id/card_history"
+            app:layout_constraintTop_toBottomOf="@+id/tv_history"
             app:layout_constraintVertical_bias="0.0"
             tools:text="Aug 15, 2024" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn_readmore"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:elevation="10dp"
-            android:background="@drawable/start_prediction_main"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/card_plant"
-            app:layout_constraintTop_toBottomOf="@+id/tv_date">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/xml_read_more"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:elevation="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,9 +33,12 @@ class HistoryFragment : Fragment() {
 
         // Mengamati data di ViewModel
         historyViewModel.history.observe(viewLifecycleOwner) { historys ->
-            // Menyambungkan Adapter dengan data
-            historyAdapter = HistoryAdapter(historys)
-            binding.rvHistory.adapter = historyAdapter
+            // Pastikan data historys tidak null
+            if (historys != null) {
+                // Menyambungkan Adapter dengan data
+                historyAdapter = HistoryAdapter(historys)
+                binding.rvHistory.adapter = historyAdapter
+            }
         }
 
         return root
@@ -46,3 +49,4 @@ class HistoryFragment : Fragment() {
         _binding = null
     }
 }
+

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.egglyze.databinding.ItemHistoryBinding
+import com.bumptech.glide.Glide
 
 class HistoryAdapter(private val historyList: List<History>) :
     RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
@@ -11,9 +12,13 @@ class HistoryAdapter(private val historyList: List<History>) :
     // ViewHolder untuk item dalam RecyclerView
     class HistoryViewHolder(private val binding: ItemHistoryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(history: History) {
-            binding.tvPlant.text = history.title
-            binding.tvDate.text = history.date
-            binding.imgPlant.setImageResource(history.imageResId)
+            binding.tvHistory.text = history.confidence
+            binding.tvDate.text = history.predictedClass
+
+            // Memuat gambar menggunakan Glide jika history.image adalah URL
+            Glide.with(binding.imgHistory.context)
+                .load(history.image) // Menggunakan string URL
+                .into(binding.imgHistory) // Menetapkan gambar ke ImageView
         }
     }
 
@@ -33,3 +38,4 @@ class HistoryAdapter(private val historyList: List<History>) :
         return historyList.size
     }
 }
+

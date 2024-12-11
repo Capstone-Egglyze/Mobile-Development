@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
-
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -45,7 +45,6 @@ android {
 dependencies {
     implementation(libs.firebase.database)
     implementation(libs.androidx.datastore.preferences.core.jvm)
-
     val cameraxVersion = "1.3.0"
 
     implementation(libs.androidx.core.ktx)
@@ -67,7 +66,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
 //    Splash Screen
-    implementation ("androidx.core:core-splashscreen:1.0.0")
+    implementation("androidx.core:core-splashscreen:1.0.0")
 
 //    Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
@@ -77,10 +76,10 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation("com.google.firebase:firebase-analytics")
 
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.0")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.7.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.0")
 
 //    Tensorflow lite
     implementation("org.tensorflow:tensorflow-lite-metadata:0.4.4")
@@ -90,12 +89,12 @@ dependencies {
     implementation("org.tensorflow:tensorflow-lite-gpu:2.9.0")
 
     // Firebase Libraries
-    implementation ("com.google.firebase:firebase-auth-ktx")
-    implementation ("com.google.firebase:firebase-firestore-ktx")
-    implementation ("com.google.firebase:firebase-storage-ktx")
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-storage-ktx")
 
 // Image Loading Library
-    implementation ("com.squareup.picasso:picasso:2.71828")
+    implementation("com.squareup.picasso:picasso:2.71828")
 
 
 //    Circle
@@ -119,5 +118,16 @@ dependencies {
 
 //    Animasi
     implementation("com.airbnb.android:lottie:6.0.0")
+
+//    room
+    implementation("androidx.room:room-common:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    implementation("androidx.room:room-runtime:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
+
+//    GLide
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+
 
 }

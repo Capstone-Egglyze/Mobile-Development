@@ -2,6 +2,7 @@ package com.dicoding.egglyze.view.camera
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.egglyze.R
 import com.dicoding.egglyze.databinding.ActivityResultBinding
@@ -28,7 +29,6 @@ class ResultActivity : AppCompatActivity() {
             getString(R.string.analysis_failed)
         }
         binding.resultTextView.text = "$result\n$confidenceText"
-
     }
 
     companion object {
