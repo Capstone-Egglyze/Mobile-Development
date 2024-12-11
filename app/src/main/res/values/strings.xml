@@ -54,14 +54,14 @@
     <string name="xml_result_history">Result History</string>
     <string name="xml_read_more">read more</string>
 
-    <!--XML Settings-->
+    <!--XML Profile-->
     <string name="xml_profile">Profile</string>
     <string name="xml_profile_name">profile</string>
     <string name="xml_grup_name">C241-PS395</string>
-    <string name="xml_settings_name">name</string>
+    <string name="xml_settings_name">Name</string>
     <string name="xml_theme">Theme</string>
     <string name="xml_app_theme">app theme</string>
-    <string name="xml_light_dark">light/dark</string>
+    <string name="xml_light_dark">Light/Dark</string>
     <string name="xml_arrow">arrow right</string>
     <string name="xml_language">Language</string>
     <string name="xml_english_indonesia">english/indonesia</string>
@@ -71,6 +71,7 @@
     <string name="xml_yes_logout">Yes, logout</string>
     <string name="xml_info_desc">The soil sensor updated every 5 minute. please click the refresh button to update the soil data</string>
     <string name="dark_mode">Dark Mode</string>
+    <string name="xml_accept">Accept</string>
 
     <!--XML Act Result-->
     <string name="xml_result">Result</string>
@@ -97,5 +98,5 @@
     <string name="camera_x">Camera-X</string>
     <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu</string>
 
-    <string name="email">email</string>
+    <string name="email">Email</string>
 </resources>

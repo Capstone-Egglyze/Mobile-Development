@@ -26,6 +26,9 @@
         android:theme="@style/Theme.Egglyze"
         tools:targetApi="31" >
         <activity
+            android:name=".view.home.PremiumActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.animation.LoadingSplashActivity"
             android:exported="false" />
         <activity

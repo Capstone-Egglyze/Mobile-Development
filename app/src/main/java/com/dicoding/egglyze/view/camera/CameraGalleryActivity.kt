@@ -11,20 +11,9 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
 import com.dicoding.egglyze.R
-import com.dicoding.egglyze.data.remote.retrofit.ApiConfig
 import com.dicoding.egglyze.databinding.ActivityCameraGalleryBinding
 import com.dicoding.egglyze.view.animation.LoadingSplashActivity
-import com.dicoding.egglyze.view.camera.CameraActivity.Companion.CAMERAX_RESULT
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
-import okhttp3.RequestBody.Companion.asRequestBody
-import java.io.File
 
 class CameraGalleryActivity : AppCompatActivity() {
 
@@ -54,7 +43,6 @@ class CameraGalleryActivity : AppCompatActivity() {
 
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.cameraButton.setOnClickListener { startCamera() }
-        binding.cameraXButton.setOnClickListener { startCameraX() }
         binding.analyzeButton.setOnClickListener {
             currentImageUri?.let { uri ->
                 analyzeImage(uri)
@@ -90,20 +78,6 @@ class CameraGalleryActivity : AppCompatActivity() {
         ActivityResultContracts.TakePicture()
     ) { isSuccess ->
         if (isSuccess) {
-            showImage()
-        }
-    }
-
-    private fun startCameraX() {
-        val intent = Intent(this, CameraActivity::class.java)
-        launcherIntentCameraX.launch(intent)
-    }
-
-    private val launcherIntentCameraX = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == CAMERAX_RESULT) {
-            currentImageUri = it.data?.getStringExtra(CameraActivity.EXTRA_CAMERAX_IMAGE)?.toUri()
             showImage()
         }
     }
