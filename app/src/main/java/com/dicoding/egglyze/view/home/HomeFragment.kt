@@ -47,6 +47,11 @@ class HomeFragment : Fragment() {
         binding.buttonInfo.setOnClickListener {
             showInfoDialog()
         }
+        binding.linearMain.setOnClickListener {
+            // Membuka PremiumActivity ketika linear_main diklik
+            val intent = Intent(activity, PremiumActivity::class.java)
+            startActivity(intent)
+        }
 
         return root
     }
