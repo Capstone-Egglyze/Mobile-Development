@@ -5,9 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
+import android.view.animation.LinearInterpolator
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.egglyze.R
+import com.dicoding.egglyze.data.database.DatabaseEntity
+import com.dicoding.egglyze.data.database.di.Injection
 import com.dicoding.egglyze.data.remote.retrofit.ApiConfig
 import com.dicoding.egglyze.view.camera.ResultActivity
 import kotlinx.coroutines.CoroutineScope
@@ -19,12 +24,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import android.animation.ObjectAnimator
-import android.util.Log
-import android.view.animation.LinearInterpolator
-import android.widget.TextView
-import com.dicoding.egglyze.data.database.MyDatabase
-import com.dicoding.egglyze.data.database.DatabaseEntity
-import com.dicoding.egglyze.data.database.di.Injection
+import com.bumptech.glide.Glide
 
 class LoadingSplashActivity : AppCompatActivity() {
 
@@ -35,7 +35,7 @@ class LoadingSplashActivity : AppCompatActivity() {
         val loadingText = findViewById<TextView>(R.id.loadingText)
 
         val animator = ObjectAnimator.ofFloat(loadingText, "alpha", 0f, 1f).apply {
-            duration = 1000 // durasi animasi (1 detik)
+            duration = 1000 // Durasi animasi (1 detik)
             repeatMode = ObjectAnimator.REVERSE
             repeatCount = ObjectAnimator.INFINITE
             interpolator = LinearInterpolator()
@@ -44,7 +44,6 @@ class LoadingSplashActivity : AppCompatActivity() {
 
         val imageUri = intent.getStringExtra("image_uri")?.let { Uri.parse(it) }
 
-
         // Simulasi proses loading selama 3 detik
         Handler(Looper.getMainLooper()).postDelayed({
             imageUri?.let { uri -> analyzeImage(uri) }
@@ -52,13 +51,23 @@ class LoadingSplashActivity : AppCompatActivity() {
     }
 
     private fun analyzeImage(uri: Uri) {
-        val filePath = uriToFile(uri) ?: run {
-            Toast.makeText(this, "Gagal memuat file gambar", Toast.LENGTH_SHORT).show()
+        try {
+            val filePath = uriToFile(uri)
+            if (filePath != null) {
+                Log.d("AnalyzeImage", "File path: $filePath")
+                uploadImage(File(filePath), uri)
+            } else {
+                showToast("Failed to process the image")
+                Log.e("AnalyzeImage", "File path is null for URI: $uri")
+            }
+        } catch (e: Exception) {
+            Log.e("AnalyzeImage", "Error processing image: ${e.message}", e)
+            showToast("Error processing image: ${e.message}")
             finish()
-            return
         }
+    }
 
-        val file = File(filePath)
+    private fun uploadImage(file: File, uri: Uri) {
         val requestFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
         val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
 
@@ -67,7 +76,7 @@ class LoadingSplashActivity : AppCompatActivity() {
                 val response = ApiConfig.getApiService().uploadImage(body)
                 withContext(Dispatchers.Main) {
                     if (response.prediction != null) {
-                        val confidence = response.prediction.confidence ?: "0%"  // Nilai default jika null
+                        val confidence = response.prediction.confidence ?: "0%"
                         val predictedClass = response.prediction.predictedClass ?: "Unknown"
 
                         val historyEntity = DatabaseEntity(
@@ -89,7 +98,7 @@ class LoadingSplashActivity : AppCompatActivity() {
                         }
                         startActivity(intent)
                         finish()
-                } else {
+                    } else {
                         Toast.makeText(
                             this@LoadingSplashActivity,
                             "Analisis gagal: ${response.message}",
@@ -97,7 +106,6 @@ class LoadingSplashActivity : AppCompatActivity() {
                         ).show()
 
                         Log.d("LoadingSplashActivity", "Analisis gagal: ${response.message}")
-
                         finish()
                     }
                 }
@@ -112,17 +120,32 @@ class LoadingSplashActivity : AppCompatActivity() {
     }
 
     private fun uriToFile(uri: Uri): String? {
-        val cursor = contentResolver.query(uri, null, null, null, null)
-        return if (cursor != null && cursor.moveToFirst()) {
-            val idx = cursor.getColumnIndex("_data")
-            val path = cursor.getString(idx)
-            cursor.close()
-            path
-        } else {
-            uri.path
+        return try {
+            val contentResolver = applicationContext.contentResolver
+            val inputStream = contentResolver.openInputStream(uri)
+            val file = File(applicationContext.filesDir, "image_${System.currentTimeMillis()}.jpg")
+
+
+            inputStream?.use { input ->
+                file.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+
+            if (file.exists()) {
+                Log.d("uriToFile", "File created at: ${file.absolutePath}")
+                file.absolutePath
+            } else {
+                Log.e("uriToFile", "File does not exist after copying")
+                null
+            }
+        } catch (e: Exception) {
+            Log.e("uriToFile", "Failed to convert URI to file: ${e.message}", e)
+            null
         }
     }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 }
-
-
-

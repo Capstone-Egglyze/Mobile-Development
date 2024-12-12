@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,10 +35,13 @@ class HistoryFragment : Fragment() {
         // Mengamati data di ViewModel
         historyViewModel.history.observe(viewLifecycleOwner) { historys ->
             // Pastikan data historys tidak null
-            if (historys != null) {
+            if (!historys.isNullOrEmpty()) {
                 // Menyambungkan Adapter dengan data
                 historyAdapter = HistoryAdapter(historys)
                 binding.rvHistory.adapter = historyAdapter
+            } else {
+                // Tampilkan pesan jika tidak ada data
+                showToast("No history available")
             }
         }
 
@@ -48,5 +52,10 @@ class HistoryFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
 }
+
 
