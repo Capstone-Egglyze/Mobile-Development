@@ -15,6 +15,9 @@ import androidx.appcompat.app.AlertDialog
 import com.dicoding.egglyze.R
 import com.dicoding.egglyze.databinding.FragmentHomeBinding
 import com.dicoding.egglyze.view.camera.CameraGalleryActivity
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class HomeFragment : Fragment() {
 
@@ -30,6 +33,16 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        // Menampilkan tanggal di TextView
+        val dateTextView = binding.dateTextView
+
+        // Mendapatkan tanggal saat ini
+        val dateFormat = SimpleDateFormat("EEEE, dd MMMM yyyy", Locale.getDefault())
+        val currentDate = dateFormat.format(Date())
+
+        // Menampilkan tanggal di TextView
+        dateTextView.text = currentDate
 
         // Update text jika menggunakan ViewModel
         val textView = binding.toolbarTitle

@@ -37,7 +37,7 @@
     <string name="xml_fitur">Fitur</string>
     <string name="belumpunyaakun">Belum punya akun?Don’t have an account?</string>
     <string name="xml_weather_desc">Wheather Desc</string>
-    <string name="xml_jam">XX:XX</string>
+    <string name="xml_jam">Tanggal Hari Ini</string>
 
 
     <!--Menu-->
