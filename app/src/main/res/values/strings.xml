@@ -14,19 +14,8 @@
 
     <!--XML Home-->
     <string name="xml_home">Home</string>
-    <string name="xml_celcius">°c</string>
     <string name="xml_location">location</string>
     <string name="xml_information">Information</string>
-    <string name="xml_nitrogen">Nitrogen</string>
-    <string name="xml_n">N</string>
-    <string name="xml_phosphorus">Phosphorus</string>
-    <string name="xml_p">P</string>
-    <string name="xml_potassium">Potassium</string>
-    <string name="xml_k">K</string>
-    <string name="xml_humidity">Humidity</string>
-    <string name="xml_ph">pH</string>
-    <string name="xml_temperature">Temperature</string>
-    <string name="xml_logo">tanamin ai logo</string>
     <string name="xml_scan">Scan Telur</string>
     <string name="xml_history">History</string>
     <string name="xml_egg">Egg</string>
@@ -71,7 +60,6 @@
     <string name="xml_cancel">cancel</string>
     <string name="xml_are_you_sure_want_to_logout">Are you sure want to logout?</string>
     <string name="xml_yes_logout">Yes, logout</string>
-    <string name="xml_info_desc">The soil sensor updated every 5 minute. please click the refresh button to update the soil data</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="xml_accept">Accept</string>
 
@@ -97,8 +85,9 @@
     <!--Tensorflow Lite-->
     <string name="image_classifier_failed">Image classifier failed to initialize. See error logs for details</string>
     <string name="tflitevision_is_not_initialized_yet">TfLiteVision is not initialized yet</string>
-    <string name="camera_x">Camera-X</string>
     <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu</string>
 
     <string name="email">Email</string>
+    <string name="xml_current_weather">current weather condition</string>
+    <string name="regiater_text">Register</string>
 </resources>
