@@ -36,33 +36,37 @@ class CameraGalleryActivity : AppCompatActivity() {
     // Launcher untuk meminta izin penyimpanan
     private val requestPermissionsLauncher =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            permissions.entries.forEach { entry ->
+                Log.d("Permission Check", "${entry.key} granted: ${entry.value}")
+            }
             val allGranted = permissions.values.all { it }
             if (allGranted) {
+                Log.d("Permission", "Semua izin diberikan")
                 showToast("All permissions granted")
             } else {
+                Log.e("Permission", "Beberapa izin ditolak")
                 showToast("Permissions denied")
             }
         }
 
-    // Mengecek apakah izin sudah diberikan
-    private fun allPermissionsGranted() =
-        ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
 
-    private val PERMISSION_REQUEST_CODE = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraGalleryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Log.d("Lifecycle", "Activity Created")
+
         // Mengecek izin sebelum memulai
         if (!allPermissionsGranted()) {
+            Log.d("Permission", "Meminta izin kamera dan penyimpanan")
             requestPermissionsLauncher.launch(
                 arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
             )
         } else {
             // Izin sudah diberikan, lanjutkan
+            Log.d("Permission", "Semua izin sudah diberikan")
             startGallery()
         }
 
@@ -76,12 +80,26 @@ class CameraGalleryActivity : AppCompatActivity() {
         binding.analyzeButton.setOnClickListener {
             currentImageUri?.let { uri ->
                 analyzeImage(uri)
-            }
+            } ?: Log.w("Image Analysis", "Gambar belum dipilih")
         }
+    }
+
+    // Mengecek apakah izin sudah diberikan
+    private fun allPermissionsGranted(): Boolean {
+        val cameraPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+        val storagePermission =
+            ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+
+        Log.d("Permission Status", "Kamera: ${cameraPermission == PackageManager.PERMISSION_GRANTED}")
+        Log.d("Permission Status", "Penyimpanan: ${storagePermission == PackageManager.PERMISSION_GRANTED}")
+
+        return cameraPermission == PackageManager.PERMISSION_GRANTED &&
+                storagePermission == PackageManager.PERMISSION_GRANTED
     }
 
     // Fungsi untuk membuka galeri
     private fun startGallery() {
+        Log.d("Action", "Memulai galeri")
         launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
     }
 
@@ -90,11 +108,11 @@ class CameraGalleryActivity : AppCompatActivity() {
         ActivityResultContracts.PickVisualMedia()
     ) { uri: Uri? ->
         if (uri != null) {
-            Log.d("Gallery URI", "Selected URI: $uri")
+            Log.d("Gallery URI", "URI yang dipilih: $uri")
             currentImageUri = uri
             showImage()
         } else {
-            Log.d("Photo Picker", "No media selected")
+            Log.w("Gallery URI", "Tidak ada media yang dipilih")
             showToast("No image selected")
         }
     }
@@ -102,11 +120,13 @@ class CameraGalleryActivity : AppCompatActivity() {
     // Fungsi untuk membuka kamera
     private fun startCamera() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            Log.d("Action", "Memulai kamera")
             currentImageUri = getImageUri(this)
             currentImageUri?.let { uri ->
                 launcherIntentCamera.launch(uri)
             }
         } else {
+            Log.w("Permission", "Meminta izin kamera")
             requestPermissionLauncher.launch(Manifest.permission.CAMERA)
         }
     }
@@ -125,6 +145,7 @@ class CameraGalleryActivity : AppCompatActivity() {
     // Fungsi untuk menampilkan gambar yang dipilih
     private fun showImage() {
         currentImageUri?.let {
+            Log.d("Image Preview", "Menampilkan gambar dengan URI: $it")
             Glide.with(this)
                 .load(it)
                 .into(binding.previewImageView)

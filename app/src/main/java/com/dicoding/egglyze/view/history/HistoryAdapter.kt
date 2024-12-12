@@ -19,18 +19,21 @@ class HistoryAdapter(private val historyList: List<History>) :
             binding.tvHistory.text = history.confidence
             binding.tvDate.text = history.predictedClass
 
-            if (history.image.startsWith("http")) {
-                // Jika URL
+            if (history.image.startsWith("content://")) {
+                val imageUri = Uri.parse(history.image)
+                try {
+                    Glide.with(binding.imgHistory.context)
+                        .load(imageUri)
+                        .into(binding.imgHistory)
+                } catch (e: SecurityException) {
+                    Log.e("HistoryAdapter", "Permission issue with URI: $imageUri", e)
+                }
+            } else {
                 Glide.with(binding.imgHistory.context)
                     .load(history.image)
                     .into(binding.imgHistory)
-            } else {
-                // Jika URI lokal
-                val imageUri = Uri.parse(history.image)
-                Glide.with(binding.imgHistory.context)
-                    .load(imageUri)
-                    .into(binding.imgHistory)
             }
+
         }
 
     }
