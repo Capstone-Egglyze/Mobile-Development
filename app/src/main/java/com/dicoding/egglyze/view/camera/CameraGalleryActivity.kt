@@ -11,7 +11,6 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.net.toUri
 import com.dicoding.egglyze.R
 import com.dicoding.egglyze.databinding.ActivityCameraGalleryBinding
 import com.dicoding.egglyze.view.animation.LoadingSplashActivity
