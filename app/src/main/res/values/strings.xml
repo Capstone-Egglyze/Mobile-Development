@@ -8,7 +8,7 @@
     <string name="password_hint">Password</string>
     <string name="confirm_password_hint">Konfirmasi Password</string>
     <string name="signup_button_text">Daftar</string>
-    <string name="login_prompt">Sudah punya akun? </string>
+    <string name="login_prompt">Already have an account? </string>
     <string name="login_text">Login</string>
     <string name="forgot_password_text">Lupa Password?</string>
 
@@ -35,7 +35,7 @@
     <string name="dialog_info">Aplikasi ini bertujuan untuk membantu dalam proses pengecekan kondisi telur, apakah telur tersebut masih layak untuk dikonsumsi atau tidak</string>
     <string name="xml_premium">Premium</string>
     <string name="xml_fitur">Fitur</string>
-    <string name="belumpunyaakun">Belum punya akun?</string>
+    <string name="belumpunyaakun">Belum punya akun?Don’t have an account?</string>
 
 
     <!--Menu-->

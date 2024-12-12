@@ -41,8 +41,14 @@ class SignupActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // Tampilkan ProgressBar sebelum melakukan registrasi
+            binding.progressBar.visibility = android.view.View.VISIBLE
+
             // Registrasi pengguna menggunakan Firebase
             authHelper.registerUser(email, password, name) { success, message ->
+                // Sembunyikan ProgressBar setelah proses selesai
+                binding.progressBar.visibility = android.view.View.GONE
+
                 if (success) {
                     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, LoginActivity::class.java)

@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
         authHelper = FirebaseAuthHelper()
         databaseHelper = FirebaseDatabaseHelper()
 
+        // Listener untuk tombol login
         binding.loginButton.setOnClickListener {
             val email = binding.emailEditText.text.toString().trim()
             val password = binding.passwordEditText.text.toString().trim()
@@ -34,7 +35,14 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // Tampilkan ProgressBar sebelum login
+            binding.progressBar.visibility = android.view.View.VISIBLE
+
+            // Melakukan login menggunakan Firebase
             authHelper.loginUser(email, password) { success, message ->
+                // Sembunyikan ProgressBar setelah login selesai
+                binding.progressBar.visibility = android.view.View.GONE
+
                 if (success) {
                     val currentUser = authHelper.getCurrentUser()
                     currentUser?.let {
@@ -57,6 +65,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        // Listener untuk tombol signup
         binding.signupText.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
