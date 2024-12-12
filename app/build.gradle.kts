@@ -45,6 +45,7 @@ android {
 dependencies {
     implementation(libs.firebase.database)
     implementation(libs.androidx.datastore.preferences.core.jvm)
+    implementation(libs.volley)
     val cameraxVersion = "1.3.0"
 
     implementation(libs.androidx.core.ktx)
@@ -127,6 +128,9 @@ dependencies {
 
 //    GLide
     implementation("com.github.bumptech.glide:glide:4.15.1")
+
+    implementation("androidx.activity:activity-ktx:1.5.1")
+
 
 
 }
